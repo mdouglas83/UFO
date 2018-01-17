@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UFOTracker</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oxygen+Mono|Special+Elite" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+</head>
+<body>
+
+<div class="row">
+  <div class ="col-lg-12">
+    <h1>UFO Tracker</h1>
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div id="weather" class ="col-lg-12">
+    <h2>You are located in<span id="conditions"></span></h2>
+  </div>
+</div>
+
+<div class ="row">
+        <div class="col-lg-3 initiate">
+            
+  </div>
+  <div  id="marginNone" class="col-lg-3 initiate">
+    <img id="logo" src="images/sightings.jpg">;
+    <div id="whitetext" class="row">
+      See Sightings in your area
+    </div>
+  </div>
+    <div  id="marginNone" class="col-lg-3 initiate">
+    <img id="logo2" src="images/report.jpg">;
+       <div id="whitetext" class="row">
+      Report a sighting
+    </div>
+  </div>
+      <div class="col-lg-3 initiate">
+        
+  </div>
+</div>
+
+
+
+<!-- Create a wrapper for the main app -->
+<section class="wrapper hidden">
+
+
+
+  <div class="row">
+    <div class ="col-lg-12">
+      <h2>Displaying Sightings</h2>
+    </div>
+  </div>
+
+  <div class ="row">
+    <div class="col-lg-4">
+  </div>
+
+  <div id="map" class = "col-lg-8 mapimage">;
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4">
+    </div>
+    <div  class="col-lg-4 reinit">
+      Back to Home Page
+    </div>
+    <div class="col-lg-4">
+    </div>
+  </div>
+
+</section>
+
+<!-- Hide the restart assets until the app is over -->
+<div class="results hidden">
+  <div class="row">
+    <div class = "col-lg-3">
+    </div>
+    <div id="right" class = "col-lg-6 results">
+      New Report
+    </div>
+    <div class = "col-lg-3">
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-lg-3">
+    </div>
+    <div id="sightdetails" class="col-lg-6">
+      <h2>Enter sighting details</h2>
+
+    </div>
+  <div class="col-lg-3">
+  </div>
+</div>
+
+
+
+
+
+
+
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend></legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="item2">Item2</label>  
+  <div class="col-md-4">
+  <input id="item2" name="item2" type="text" placeholder="placeholder" class="form-control input-md">
+
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="item1">Item 1</label>  
+  <div class="col-md-4">
+  <input id="item1" name="item1" type="text" placeholder="placeholder" class="form-control input-md">
+  
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="item4">item 4</label>  
+  <div class="col-md-4">
+  <input id="item4" name="item4" type="text" placeholder="placeholder" class="form-control input-md">
+ 
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="item3">item 3</label>  
+  <div class="col-md-4">
+  <input id="item3" name="item3" type="text" placeholder="placeholder" class="form-control input-md">
+ 
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+
+<!-- Hide the restart assets  -->
+<div class="reinit hidden">
+  <div class="row">
+    <div class="col-lg-4">
+    </div>
+      <div class="col-lg-4" id="submit">Submit form
+      </div>
+    <div class="col-lg-4">
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="js/wireframe.js"></script>
+<!-- <script type="text/javascript" src="js/sightings.js"></script> -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtkhA1IAVN1EubX5cCU1pytpjx5CxMpfE&libraries=geometry&callback=initMap"></script>
+</body>
+</html>

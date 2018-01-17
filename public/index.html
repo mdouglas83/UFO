@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UFOTracker</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oxygen+Mono|Special+Elite" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+</head>
+<body>
+<!-- ============================================ -->
+  <video playsinline autoplay muted id="bgvid">
+  <source src="videos/motion_background.mp4" type="video/mp4">
+</video>
+
+<div id="top_nav">
+<br><br>
+<div class="row row-bordered" id="nav">
+  <div class ="col-lg-12">
+    <div class = "container">
+    <h1>The Truth is Out There</h1>
+    <h3>UFO Tracker</h3>
+  </div>
+  </div>
+</div>
+</div>
+
+<div class="row" id="options">
+<div class="row">
+  <div id="weather" class ="col-lg-12">
+    <h2>You are located in<span id="conditions"></span></h2>
+  </div>
+</div>
+<!-- </div> -->
+
+<div class ="row">
+  <div class="col-lg-3 initiate">
+  </div>
+  <div  id="marginNone" class="col-lg-2 initiate">
+    <img id="logo" src="images/sightings.jpg">
+    <div id="whitetext" class="row">
+      View sightings
+    </div>
+    <br><br>
+  </div>
+  <div id="marginNone" class="col-lg-2 initiate">
+    <img id="logo2" src="images/report.jpg">
+     <div id="whitetext" class="row">
+      Report a sighting
+    </div>
+    <br><br>
+  </div>
+  <div id="marginNone" class="col-lg-2 initiate">
+    <a href="./contact">
+      <img id="logo3" src="images/contact.jpg">
+       <div id="whitetext" class="row">
+        Contact us
+      </div>
+    </a>
+    <br><br>
+  </div>
+  <div class="col-lg-3 initiate"> 
+  </div>
+</div>
+</div>
+<!-- =================================== -->
+
+<!-- Create a wrapper for the main app -->
+<section class="wrapper hidden">
+
+
+
+  <div class="row">
+    <div class ="col-lg-12">
+      <h2>Global Sightings</h2>
+    </div>
+  </div>
+  <br><br>
+
+  <div class ="row" id="thing">
+    <div class="col-lg-4">
+  </div>
+
+  <div style="text-align: center;">
+    <div id="p-bar"></div>
+  </div>
+  <div id="map" class = "col-lg-10">
+  </div>
+</div>
+<br><br>
+
+  <div class="row">
+    <div class="col-lg-4">
+    </div>
+    <div  class="col-lg-4 reinit">
+      Home
+    </div>
+    <div class="col-lg-4">
+    </div>
+  </div>
+
+
+</section>
+<br><br><br><br><br>
+
+<!-- Hide the restart assets until the app is over -->
+<div class="results hidden">
+  <div class="row">
+    <div class = "col-lg-3">
+    </div>
+    <div id="right" class = "col-lg-6 results">
+      New Report
+    </div>
+    <div class = "col-lg-3">
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-lg-3">
+    </div>
+    <div id="sightdetails" class="col-lg-6">
+      <h2>Enter sighting details</h2>
+
+    </div>
+  <div class="col-lg-3">
+  </div>
+</div>
+
+
+
+
+
+
+
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend></legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="item2">Shape</label>  
+  <div class="col-md-4">
+  <input id="shape" name="shape" type="text" placeholder="disk" class="form-control input-md">
+
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="item1">Duration (Seconds)</label>  
+  <div class="col-md-4">
+  <input id="duration" name="duration" type="text" placeholder="60" class="form-control input-md">
+  
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="item4">Description</label>  
+  <div class="col-md-4">
+  <input id="description" name="item4" type="description" placeholder="It hovered 50 ft above the ground" class="form-control input-md">
+ 
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+
+<!-- Hide the restart assets  -->
+<div class="reinit hidden">
+  <div class="row">
+    <div class="col-lg-4">
+    </div>
+      <div class="col-lg-4" id="submit">Submit form
+      </div>
+    <div class="col-lg-4">
+    </div>
+  </div>
+</div>
+
+
+
+<!-- For cluster markings on map -->
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfPwSxU6SsTfjdd81RyEoLShzOGIO200I&callback=initMap"
+    async defer></script>
+
+<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtkhA1IAVN1EubX5cCU1pytpjx5CxMpfE&libraries=geometry&callback=initMap"></script> -->
+<script type="text/javascript" src="js/wireframe.js"></script>
+
+</body>
+</html>

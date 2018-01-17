@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UFOTracker</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oxygen+Mono|Special+Elite" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+  <script>
+    function getUrl() {
+      var url = window.location.href;
+      url = url.slice(0, url.lastIndexOf('/')) + '/index.html';
+      alert(url);
+      return url;
+    };
+  </script>
+
+</head>
+<body>
+<!-- ============================================ -->
+  <video playsinline autoplay muted id="bgvid">
+  <source src="videos/motion_background.mp4" type="video/mp4">
+</video>
+
+<div id="top_nav">
+<br><br>
+<div class="row row-bordered" id="nav">
+  <div class ="col-lg-12">
+    <div class = "container">
+    <h1>The Truth is Out There</h1>
+    <h3>UFO Tracker</h3>
+  </div>
+  </div>
+</div>
+</div>
+
+
+
+<!-- Hide the restart assets until the app is over -->
+<div class="results">
+  <div class="row">
+    <div class = "col-lg-3">
+    </div>
+    <div id="right" class = "col-lg-6 results">
+      Contact us
+    </div>
+    <div class = "col-lg-3">
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-lg-3">
+    </div>
+    <div id="sightdetails" class="col-lg-6">
+      <h2>Enter details below</h2>
+
+    </div>
+  <div class="col-lg-3">
+  </div>
+</div>
+
+
+<form class="form-horizontal" method="POST" name="contactform" action="http://box.ivytech.co/md/contact.php">
+
+  <fieldset>
+
+  <input name="redirect" type="hidden" placeholder=getUrl()>
+
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="item2">Name</label>  
+    <div class="col-md-4">
+    <input id="contact-name" name="name" type="text" placeholder="John Doe" class="form-control input-md">
+
+    </div>
+  </div>
+
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="item1">Email</label>  
+    <div class="col-md-4">
+    <input id="contact-email" name="email" type="text" placeholder="example@gmail.com" class="form-control input-md">
+    
+    </div>
+  </div>
+
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="item4">Description</label>  
+    <div class="col-md-4">
+    <textarea id="contact-message" name="message" type="text" class="form-control input-md"></textarea>
+   
+    </div>
+  </div>
+
+  </fieldset>
+
+<div class="reinit">
+  <div class="row">
+    <div class="col-lg-4">
+    </div>
+      <input class="col-lg-4" id="submit" type="submit" value="Submit">
+      <!-- <div class="col-lg-4" id="submit">Submit form</div> -->
+    <div class="col-lg-4">
+    </div>
+  </div>
+</div>
+
+</form>
+
+
+<!-- For cluster markings on map -->
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfPwSxU6SsTfjdd81RyEoLShzOGIO200I&callback=initMap"
+    async defer></script>
+<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtkhA1IAVN1EubX5cCU1pytpjx5CxMpfE&libraries=geometry&callback=initMap"></script> -->
+<!-- <script type="text/javascript" src="js/wireframe.js"></script> -->
+</body>
+</html>
