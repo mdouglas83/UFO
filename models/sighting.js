@@ -13,10 +13,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING
     },
     lng: {
-      type: DataTypes.DOUBLE
+      type: DataTypes.FLOAT
     },
     lat: {
-      type: DataTypes.DOUBLE
+      type: DataTypes.FLOAT
     }
   });
   return sighting;

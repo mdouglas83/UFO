@@ -8,16 +8,16 @@
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "root",
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "b24100c530b817",
+    "password": "ace6a909",
+    "database": "heroku_8ac4496ec02f72f",
+    "host": "us-cdbr-iron-east-05.cleardb.net",
     "dialect": "mysql"
   }
 }
