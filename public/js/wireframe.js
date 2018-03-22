@@ -446,13 +446,11 @@ function getSightings() {
       while (i < maxId) {
         if (i + blockSize > maxId) n = maxId - i;
         $.get("/api/sightings/" + (i + 1) + "/" + (i + n) + "/" + n, function(data) {
-          //console.log(data);
           if (data || data.length) {
             initializeMarkers(data);
           }
         });
         i += n;
-
       }
     }
   });
